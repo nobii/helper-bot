@@ -36,7 +36,11 @@ controller.on('direct_mention', (bot, message) => {
             }
         });
     } else if (db[text]) {
-        bot.reply(message, db[text]);
+        bot.api.chat.postMessage({
+            username: bot.identity.name,
+            text: db[text],
+            channel: message.channel
+        });
     } else {
         bot.reply(message, '?');
     }
