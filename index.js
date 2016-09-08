@@ -23,7 +23,7 @@ controller.spawn({
 controller.on('direct_mention', (bot, message) => {
     const text = message.text;
 
-    const matchData = text.match(/^set +([a-z]+) +(.+)$/);
+    const matchData = text.match(/^set +([^ ]+) +(.+)$/);
     if (matchData) {
         const key = matchData[1];
         const word = matchData[2];
