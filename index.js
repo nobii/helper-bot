@@ -30,10 +30,17 @@ controller.on('direct_mention', (bot, message) => {
         db[key] = word;
         saveDB((err) => {
             if (err) {
+                bot.reply(message, `「${key}」を覚えられなかった…`);
+            } else {
+                bot.reply(message, `おう、「${key}」を覚えたぞ！`);
+            }
+            /*
+            if (err) {
                 bot.reply(message, `Oh, fail to set word for "${key}".`);
             } else {
                 bot.reply(message, `ok! I set word for "${key}".`);
             }
+             */
         });
     } else if (db[text]) {
         bot.api.chat.postMessage({
