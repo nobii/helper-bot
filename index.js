@@ -39,7 +39,8 @@ controller.on('direct_mention', (bot, message) => {
         bot.api.chat.postMessage({
             username: bot.identity.name,
             text: db[text],
-            channel: message.channel
+            channel: message.channel,
+            as_user: true
         });
     } else {
         bot.reply(message, '?');
